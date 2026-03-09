@@ -1,54 +1,69 @@
 .keyboard-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
 .keyboard-row button {
-  width: 70px;       /* bigger buttons */
-  height: 60px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  border: 2px solid black;
-  background: white;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    width: 70px;
+    /* bigger buttons */
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .keyboard-row button:hover:not(:disabled) {
-  background: #f0f0f0;
-  transform: scale(1.05);
+    background: #f0f0f0;
+    transform: scale(1.05);
 }
 
 .keyboard-row button:disabled {
-  background: lightgray;
-  cursor: not-allowed;
-  opacity: 0.6;
+    background: lightgray;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* Responsive */
 @media (min-width: 576px) {
-  .keyboard-row button {
-    width: 90px;
-    height: 70px;
-    font-size: 18px;
-  }
+    .keyboard-row button {
+        width: 90px;
+        height: 70px;
+        font-size: 18px;
+    }
 }
 
 @media (min-width: 768px) {
-  .keyboard-row button {
-    width: 110px;
-    height: 80px;
-    font-size: 20px;
-  }
+    .keyboard-row button {
+        width: 110px;
+        height: 80px;
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 992px) {
-  .keyboard-row button {
-    width: 130px;
-    height: 100px;
-    font-size: 22px;
-  }
+    .keyboard-row button {
+        width: 130px;
+        height: 100px;
+        font-size: 22px;
+    }
+}
+
+/* Hide all screens by default */
+.screen {
+  display: none;              /* hide all screens */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;           /* makes it take most of the viewport */
+}
+
+/* Show the active screen */
+.screen.active {
+  display: flex;
 }
