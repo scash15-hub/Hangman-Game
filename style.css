@@ -4,7 +4,44 @@ body {
     background-position: center;
 }
 
+/* Home menu box */
+.card-box1 {
+  background: rgba(0, 0, 0, 0.6); /* black with opacity so turf shows through */
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+}
 
+/* Title */
+.card-box1 h1 {
+  color: gold;
+  font-size: 48px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* Start buttons */
+.card-box1 button {
+  display: block;
+  width: 250px;
+  margin: 15px auto;
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #28a745, #218838);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.card-box1 button:hover {
+  background: linear-gradient(45deg, #218838, #1e7e34);
+  transform: scale(1.05);
+}
 
 
 .keyboard-container {
