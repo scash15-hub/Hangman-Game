@@ -54,89 +54,56 @@ return filteredWords[Math.floor(Math.random() * filteredWords.length)]
 
 //start game
 function startGame(level) {
-selectedWord = getRandomWord(level)
+selectedWord = getRandomWord(level).toUpperCase()
 displayWord = '_'.repeat(selectedWord.length)
 document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
 }
 
 onclick="showScreen('screen-easy')"
+onclick="showScreen('screen-medium')"
+onclick="showScreen('screen-hard')"
+
 
 
 
 
 //AI keyboard clicked
 function keyPress(letter) {
-  console.log("You pressed " + letter);
-  //AI keyboard clicked
-function keyPress(letter) {
+  letter = letter.toUpperCase();
   console.log("You pressed " + letter);
 
   //disable the button
-const buttons = document.querySelectorAll(".keyboard-row button")
-buttons.forEach(btn => {
-  if (btn.innerText === letter.toUpperCase()) {
-    btn.disabled = true
-  }
-})
+  const buttons = document.querySelectorAll(".keyboard-row button")
+  buttons.forEach(btn => {
+    if (btn.innerText === letter) {
+      btn.disabled = true
+    }
+  })
 
-//check if letter is in the word
-if (selectedWord.includes(letter)) {
+  //check if letter is in the word
+  if (selectedWord.includes(letter)) {
 
-let newWord = ''
+    let newWord = ''
 
-for (let i = 0; i < selectedWord.length; i++) {
+    for (let i = 0; i < selectedWord.length; i++) {
 
-  if (selectedWord[i] === letter) {
-    newWord += letter
-  } else {
-    newWord += displayWord[i]
-  }
+      if (selectedWord[i] === letter) {
+        newWord += letter
+      } else {
+        newWord += displayWord[i]
+      }
 
-}
+    }
 
-displayWord = newWord
+    displayWord = newWord
 
-//update screen
-document.getElementById('wordDisplay').textContent =
-displayWord.split('').join('  ')
+    //update screen
+    document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
 
-}
-
-}
-//END OF AI KEYBOARD
-
-  //disable the button
-const buttons = document.querySelectorAll(".keyboard-row button")
-buttons.forEach(btn => {
-  if (btn.innerText === letter.toUpperCase()) {
-    btn.disabled = true
-  }
-})
-
-//check if letter is in the word
-if (selectedWord.includes(letter)) {
-
-let newWord = ''
-
-for (let i = 0; i < selectedWord.length; i++) {
-
-  if (selectedWord[i] === letter) {
-    newWord += letter
-  } else {
-    newWord += displayWord[i]
   }
 
 }
 
-displayWord = newWord
-
-//update screen
-document.getElementById('wordDisplay').textContent =
-displayWord.split('').join('  ')
-
-}
-
-}
 //END OF AI KEYBOARD
 
 
@@ -152,6 +119,49 @@ function showScreen(screenId) {
 // showScreen('easy');
 //END OF AI SCREEN
 
+//AI medal
+function keyPress(letter) {
+  letter = letter.toUpperCase();
+  console.log("You pressed " + letter);
+
+  //disable the button
+  const buttons = document.querySelectorAll(".keyboard-row button");
+  buttons.forEach(btn => {
+    if (btn.innerText === letter) {
+      btn.disabled = true;
+    }
+  });
+
+  //check if letter is in the word
+  if (selectedWord.includes(letter)) {
+
+    let newWord = '';
+    for (let i = 0; i < selectedWord.length; i++) {
+      if (selectedWord[i] === letter) {
+        newWord += letter;
+      } else {
+        newWord += displayWord[i];
+      }
+    }
+
+    displayWord = newWord;
+    document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ');
+
+  } else {
+    // WRONG GUESS!
+    wrongGuesses++;
+
+    // Update medal image
+    const medalImg = document.getElementById('medal');
+    medalImg.src = `imgs/medal${maxMistakes - wrongGuesses}.png`;
+
+    // Check if game over
+    if (wrongGuesses >= maxMistakes) {
+      endGame(false); // make sure you have this function
+    }
+  }
+}
+//END OF AI MEDAL
 
 
 

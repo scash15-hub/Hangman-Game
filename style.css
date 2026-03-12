@@ -1,7 +1,9 @@
 body {
   background-image: url(turf.jpg);
   background-size: cover;
-    background-position: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Home menu box */
@@ -155,4 +157,16 @@ body {
   text-align: center;
   margin: 20px 0;
   font-weight: bold;
+}
+
+hr {
+  height: 30px;
+  background-color: black;
+  width: 1000px;
+  margin: 0;       
+  padding: 0;      
+}
+
+#medal {
+  margin-top: -30px;   
 }
