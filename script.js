@@ -42,59 +42,24 @@ const maxMistakes = 6;
 let winAmount = 0;
 let lossAmount = 0;
 
-//start game
-function startGame() {
-  //reset game variables
-  wrongGuesses = 0;
-  guessedLetters = [];
-  //pick a random word
-  selectedWord = getRandomWord();
-  //create starting underscores
-  displayWord = '_' .repeat(selectedWord.length);
-  //update screen
-  updateScreen();
+//pic random word for level
+function getRandomWord (level) {
+let filteredWords = wordList.filter(word => {
+  if (level === 'easy') return word.length <= 6
+  if (level === 'medium') return word.length >= 7 && word.length <= 12
+  if (level === 'hard') return word.length >= 13
+})
+return filteredWords[Math.floor(Math.random() * filteredWords.length)]
 }
 
+//start game
+function startGame(level) {
+selectedWord = getRandomWord(level)
+displayWord = '_'.repeat(selectedWord.length)
+document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+onclick="showScreen('screen-easy')"
 
 
 
@@ -102,17 +67,75 @@ function startGame() {
 //AI keyboard clicked
 function keyPress(letter) {
   console.log("You pressed " + letter);
+  //AI keyboard clicked
+function keyPress(letter) {
+  console.log("You pressed " + letter);
 
-  // disable the button so it can't be clicked again
-  const buttons = document.querySelectorAll(".keyboard button");
-  buttons.forEach(btn => {
-    if (btn.innerText === letter) {
-      btn.disabled = true;
-    }
-  });
+  //disable the button
+const buttons = document.querySelectorAll(".keyboard-row button")
+buttons.forEach(btn => {
+  if (btn.innerText === letter.toUpperCase()) {
+    btn.disabled = true
+  }
+})
 
-  // here you can call your hangman guess function
-  // guessLetter(letter);
+//check if letter is in the word
+if (selectedWord.includes(letter)) {
+
+let newWord = ''
+
+for (let i = 0; i < selectedWord.length; i++) {
+
+  if (selectedWord[i] === letter) {
+    newWord += letter
+  } else {
+    newWord += displayWord[i]
+  }
+
+}
+
+displayWord = newWord
+
+//update screen
+document.getElementById('wordDisplay').textContent =
+displayWord.split('').join('  ')
+
+}
+
+}
+//END OF AI KEYBOARD
+
+  //disable the button
+const buttons = document.querySelectorAll(".keyboard-row button")
+buttons.forEach(btn => {
+  if (btn.innerText === letter.toUpperCase()) {
+    btn.disabled = true
+  }
+})
+
+//check if letter is in the word
+if (selectedWord.includes(letter)) {
+
+let newWord = ''
+
+for (let i = 0; i < selectedWord.length; i++) {
+
+  if (selectedWord[i] === letter) {
+    newWord += letter
+  } else {
+    newWord += displayWord[i]
+  }
+
+}
+
+displayWord = newWord
+
+//update screen
+document.getElementById('wordDisplay').textContent =
+displayWord.split('').join('  ')
+
+}
+
 }
 //END OF AI KEYBOARD
 

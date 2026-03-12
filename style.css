@@ -47,21 +47,35 @@ body {
 .keyboard-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
+    padding: 0 10px;
+}
+
+.keyboard-row {
+    width: 100%;
+    max-width: 600px;
 }
 
 .keyboard-row button {
-    width: 70px;
-    /* bigger buttons */
-    height: 60px;
-    font-size: 16px;
+    /* Responsive sizing */
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 12px 16px;
+    font-size: clamp(14px, 4vw, 22px);
     font-weight: bold;
     border-radius: 8px;
     border: 2px solid black;
     background: white;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin: 6px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .keyboard-row button:hover:not(:disabled) {
@@ -73,6 +87,50 @@ body {
     background: lightgray;
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+/* Extra small devices (mobile phones) */
+@media (max-width: 576px) {
+    .keyboard-container {
+        gap: 10px;
+        padding: 0 5px;
+    }
+    
+    .keyboard-row button {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 10px 14px;
+        margin: 4px;
+        font-size: 12px;
+    }
+}
+
+/* Small devices (landscape phones, tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .keyboard-row button {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        padding: 12px 16px;
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
+/* Medium devices and up (tablets, desktops) */
+@media (min-width: 769px) {
+    .keyboard-row button {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+        min-height: 55px;
+        padding: 14px 20px;
+        margin: 6px;
+        font-size: 18px;
+    }
 }
 
 /* Hide all screens by default */
@@ -87,4 +145,14 @@ body {
 /* Show the active screen */
 .screen.active {
   display: flex;
+}
+
+/*underline for word display*/
+#wordDisplay {
+  font-size: 50px;      
+  color: rgb(255, 255, 255);         
+  letter-spacing: 10px; 
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
 }
