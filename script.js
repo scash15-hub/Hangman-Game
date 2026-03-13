@@ -43,25 +43,23 @@ let winAmount = 0;
 let lossAmount = 0;
 
 //pic random word for level
-function getRandomWord (level) {
-let filteredWords = wordList.filter(word => {
-  if (level === 'easy') return word.length <= 6
-  if (level === 'medium') return word.length >= 7 && word.length <= 12
-  if (level === 'hard') return word.length >= 13
-})
-return filteredWords[Math.floor(Math.random() * filteredWords.length)]
+function getRandomWord(level) {
+  let filteredWords = wordList.filter(word => {
+    if (level === 'easy') return word.length <= 6
+    if (level === 'medium') return word.length >= 7 && word.length <= 12
+    if (level === 'hard') return word.length >= 13
+  })
+  return filteredWords[Math.floor(Math.random() * filteredWords.length)]
 }
 
 //start game
 function startGame(level) {
-selectedWord = getRandomWord(level).toUpperCase()
-displayWord = '_'.repeat(selectedWord.length)
-document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
+  selectedWord = getRandomWord(level).toUpperCase()
+  displayWord = '_'.repeat(selectedWord.length)
+  document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
+  document.getElementById('screen-home').classList.remove('active')
+  document.getElementById('game-screen').classList.add('active')
 }
-
-onclick="showScreen('screen-easy')"
-onclick="showScreen('screen-medium')"
-onclick="showScreen('screen-hard')"
 
 
 
@@ -103,21 +101,8 @@ function keyPress(letter) {
   }
 
 }
-
 //END OF AI KEYBOARD
 
-
-//AI screen 
-function showScreen(screenId) {
-  document.querySelectorAll('.screen').forEach(screen => {
-    screen.classList.remove('active');  // hide all screens
-  });
-  document.getElementById(screenId).classList.add('active'); // show selected
-}
-
-// Example: go to easy screen
-// showScreen('easy');
-//END OF AI SCREEN
 
 //AI medal
 function keyPress(letter) {

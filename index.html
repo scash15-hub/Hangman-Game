@@ -22,14 +22,14 @@
 
             <h1>Sports Hangman</h1>
 
-            <button onclick="showScreen('screen-easy'); startGame('easy')">Easy</button>
-            <button onclick="showScreen('screen-medium'); startGame('medium')">Medium</button>
-            <button onclick="showScreen('screen-hard'); startGame('hard')">Hard</button>
+            <button onclick="startGame('easy')">Easy</button>
+            <button onclick="startGame('medium')">Medium</button>
+            <button onclick="startGame('hard')">Hard</button>
         </div>
     </div>
 
-    <!-- SCREEN 2: Easy -->
-    <div id="screen-easy" class="screen justify-content-center align-items-center">
+    <!-- SCREEN 2: game screen -->
+    <div id="game-screen" class="screen justify-content-center align-items-center">
         <div class="card-box2">
             <div class="medal-container text-center">
                 <hr>
@@ -80,130 +80,25 @@
                     <button class="btn btn-light mx-1 my-1" onclick="keyPress('Y')">Y</button>
                     <button class="btn btn-light mx-1 my-1" onclick="keyPress('Z')">Z</button>
                 </div>
+<div class="keyboard-row big container">
+    <div class="row justify-content-center g-2">
+
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+            <button class="btn btn-light w-100" onclick="reset('')">
+                New Game
+            </button>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+            <button class="btn btn-light w-100" onclick="guessWord('')">
+                Guess Whole Word
+            </button>
+        </div>
+
+    </div>
+</div>
             </div>
             <!-- END OF AI KEYBOARD -->
-        </div>
-    </div>
-
-    <!-- SCREEN 3: Medium -->
-    <div id="screen-medium" class="screen justify-content-center align-items-center">
-        <div class="card-box2">
-            <div class="medal-container text-center">
-                                <hr>
-                <img id="medal" src="imgs/medal6.png" width="200">
-            </div>
-            <div id="wordDisplay">
-
-            </div>
-
-
-
-            <!-- AI KEYBOARD -->
-            <div class="keyboard-container text-center">
-                <!-- Row 1: 9 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('A')">A</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('B')">B</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('C')">C</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('D')">D</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('E')">E</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('F')">F</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('G')">G</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('H')">H</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('I')">I</button>
-                </div>
-
-                <!-- Row 2: 9 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('J')">J</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('K')">K</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('L')">L</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('M')">M</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('N')">N</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('O')">O</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('P')">P</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Q')">Q</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('R')">R</button>
-                </div>
-
-                <!-- Row 3: 8 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('S')">S</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('T')">T</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('U')">U</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('V')">V</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('W')">W</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('X')">X</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Y')">Y</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Z')">Z</button>
-                </div>
-            </div>
-            <!-- END OF AI KEYBOARD -->
-        </div>
-    </div>
-
-
-    <!-- SCREEN 4: Hard -->
-    <div id="screen-hard" class="screen justify-content-center align-items-center">
-        <div class="card-box2">
-            <div class="medal-container text-center">
-                <hr>
-                <img id="medal" src="imgs/medal6.png" width="200">
-            </div>
-            <div id="wordDisplay">
-
-            </div>
-
-
-
-            <!-- AI KEYBOARD -->
-            <div class="keyboard-container text-center">
-                <!-- Row 1: 9 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('A')">A</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('B')">B</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('C')">C</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('D')">D</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('E')">E</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('F')">F</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('G')">G</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('H')">H</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('I')">I</button>
-                </div>
-
-                <!-- Row 2: 9 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('J')">J</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('K')">K</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('L')">L</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('M')">M</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('N')">N</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('O')">O</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('P')">P</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Q')">Q</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('R')">R</button>
-                </div>
-
-                <!-- Row 3: 8 letters -->
-                <div class="keyboard-row d-flex justify-content-center flex-wrap">
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('S')">S</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('T')">T</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('U')">U</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('V')">V</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('W')">W</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('X')">X</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Y')">Y</button>
-                    <button class="btn btn-light mx-1 my-1" onclick="keyPress('Z')">Z</button>
-                </div>
-            </div>
-            <!-- END OF AI KEYBOARD -->
-        </div>
-    </div>
-
-
-    <!-- SCREEN 5: Win -->
-    <div id="screen-win" class="screen justify-content-center align-items-center">
-        <div class="card-box5">
         </div>
     </div>
 

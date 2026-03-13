@@ -109,6 +109,24 @@ body {
     }
 }
 
+.keyboard-row.big {
+    width: 100%;
+    max-width: 520px; /* same visual width as row 3 */
+    margin: auto;
+}
+
+.keyboard-row.big button {
+    flex: 1;
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+
+.keyboard-container {
+          padding-left: 30px;
+    padding-right: 30px;
+}
+
 /* Small devices (landscape phones, tablets) */
 @media (min-width: 576px) and (max-width: 768px) {
     .keyboard-row button {
