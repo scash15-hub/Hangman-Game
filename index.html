@@ -80,28 +80,39 @@
                     <button class="btn btn-light mx-1 my-1" onclick="keyPress('Y')">Y</button>
                     <button class="btn btn-light mx-1 my-1" onclick="keyPress('Z')">Z</button>
                 </div>
-<div class="keyboard-row big container">
-    <div class="row justify-content-center g-2">
+                <div class="keyboard-row big container">
+                    <div class="row justify-content-center g-2">
 
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn btn-light w-100" onclick="reset('')">
-                New Game
-            </button>
-        </div>
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+                            <button class="btn btn-light w-100" onclick="reset('')">
+                                New Game
+                            </button>
+                        </div>
 
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn btn-light w-100" onclick="guessWord('')">
-                Guess Whole Word
-            </button>
-        </div>
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+                            <!-- Hidden input for typing the guess -->
+<input type="text" id="guess-input-hidden" placeholder="Type the word" style="display:none;" />
 
-    </div>
-</div>
+<!-- Your button (keep ID and onclick) -->
+<button class="btn btn-light w-100" id="guess-input" onclick="guessWord('')">
+    Guess Whole Word
+</button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <!-- END OF AI KEYBOARD -->
         </div>
     </div>
 
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <span id="popup-text"></span>
+  </div>
+</div>
+
+    
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

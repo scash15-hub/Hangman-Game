@@ -38,9 +38,10 @@ let selectedWord = '';
 let displayWord = '';
 let wrongGuesses = 0;
 let guessedLetters = [];
-const maxMistakes = 6;
+let maxMistakes = 6;
 let winAmount = 0;
 let lossAmount = 0;
+let gameOver = false;
 
 //pic random word for level
 function getRandomWord(level) {
@@ -56,19 +57,70 @@ function getRandomWord(level) {
 function startGame(level) {
   selectedWord = getRandomWord(level).toUpperCase()
   displayWord = '_'.repeat(selectedWord.length)
+  wrongGuesses = 0;
+  guessedLetters = [];
+  gameOver = false;
+
   document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
   document.getElementById('screen-home').classList.remove('active')
   document.getElementById('game-screen').classList.add('active')
 }
 
+//end game
+function endGame(win) {
+  gameOver = true;
 
+  if (win) {
+    //ai so i can do popup not alert but i know how to do alerts
+    //alert('You win!');
+    document.getElementById("popup-text").textContent = "You win!";
+    document.getElementById("popup").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("popup").style.display = "none";
+    }, 2000);
+  } else {
+    //alert('Game Over! The word was ' + selectedWord)
+    document.getElementById("popup-text").textContent = "Game Over! The word was " + selectedWord;
+    document.getElementById("popup").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("popup").style.display = "none";
+    }, 2000);
+  }
+}
+
+
+
+//reset variables
+function reset() {
+  selectedWord = '';
+  displayWord = '';
+  wrongGuesses = 0;
+  guessedLetters = [];
+  gameOver = false;
+
+  document.getElementById('wordDisplay').textContent = '';
+  document.getElementById('medal').src = 'imgs/medal6.png';
+
+  const buttons = document.querySelectorAll(".keyboard-row button");
+  buttons.forEach(btn => btn.disabled = false);
+
+  document.getElementById('game-screen').classList.remove('active');
+  document.getElementById('screen-home').classList.add('active');
+}
 
 
 
 //AI keyboard clicked
 function keyPress(letter) {
+
+  if (gameOver) return;
+
   letter = letter.toUpperCase();
   console.log("You pressed " + letter);
+
+  //prevent duplicate guesses
+  if (guessedLetters.includes(letter)) return;
+  guessedLetters.push(letter);
 
   //disable the button
   const buttons = document.querySelectorAll(".keyboard-row button")
@@ -85,7 +137,7 @@ function keyPress(letter) {
 
     for (let i = 0; i < selectedWord.length; i++) {
 
-      if (selectedWord[i] === letter) {
+      if (selectedWord.charAt(i) === letter) {
         newWord += letter
       } else {
         newWord += displayWord[i]
@@ -98,39 +150,10 @@ function keyPress(letter) {
     //update screen
     document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
 
-  }
-
-}
-//END OF AI KEYBOARD
-
-
-//AI medal
-function keyPress(letter) {
-  letter = letter.toUpperCase();
-  console.log("You pressed " + letter);
-
-  //disable the button
-  const buttons = document.querySelectorAll(".keyboard-row button");
-  buttons.forEach(btn => {
-    if (btn.innerText === letter) {
-      btn.disabled = true;
+    //win check
+    if (displayWord.indexOf('_') === -1) {
+      endGame(true);
     }
-  });
-
-  //check if letter is in the word
-  if (selectedWord.includes(letter)) {
-
-    let newWord = '';
-    for (let i = 0; i < selectedWord.length; i++) {
-      if (selectedWord[i] === letter) {
-        newWord += letter;
-      } else {
-        newWord += displayWord[i];
-      }
-    }
-
-    displayWord = newWord;
-    document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ');
 
   } else {
     // WRONG GUESS!
@@ -142,12 +165,70 @@ function keyPress(letter) {
 
     // Check if game over
     if (wrongGuesses >= maxMistakes) {
-      endGame(false); // make sure you have this function
+      endGame(false);
     }
   }
 }
 //END OF AI MEDAL
 
+//ai to guess whole word
 
+//guess whole word
+//ai to guess whole word
+function guessWord() {
+  if (gameOver) return;
 
+  const input = document.getElementById("guess-input-hidden");
 
+  // Show input if it's hidden
+  if (input.style.display === "none") {
+    input.style.display = "inline-block";
+    input.focus(); // put cursor in it
+    return; // wait for user to type and press Enter
+  }
+
+  // get guess from hidden input
+  let guess = input.value.toUpperCase();
+  input.value = ""; // clear input
+  input.style.display = "none"; // hide input again
+
+  //check if correct
+  if (guess === selectedWord) {
+    displayWord = selectedWord;
+    document.getElementById('wordDisplay').textContent =
+      displayWord.split('').join('  ');
+
+    document.getElementById("popup-text").textContent = "You win!";
+    document.getElementById("popup").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("popup").style.display = "none";
+    }, 2000);
+
+    endGame(true);
+  } 
+  //wrong guess
+  else {
+    wrongGuesses++;
+
+    const medalImg = document.getElementById('medal');
+    medalImg.src = `imgs/medal${maxMistakes - wrongGuesses}.png`;
+
+    if (wrongGuesses >= maxMistakes) {
+      document.getElementById("popup-text").textContent =
+        "Game Over! The word was " + selectedWord;
+
+      document.getElementById("popup").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("popup").style.display = "none";
+      }, 2000);
+
+      endGame(false);
+    } else {
+      document.getElementById("popup-text").textContent = "Wrong guess!";
+      document.getElementById("popup").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("popup").style.display = "none";
+      }, 2000);
+    }
+  }
+}
