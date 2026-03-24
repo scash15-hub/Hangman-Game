@@ -32,7 +32,6 @@
     <div id="game-screen" class="screen justify-content-center align-items-center">
         <div class="card-box2">
             <div class="medal-container text-center">
-                <hr>
                 <img id="medal" src="imgs/medal6.png" width="200">
             </div>
             <div id="wordDisplay">
@@ -83,6 +82,16 @@
                 <div class="keyboard-row big container">
                     <div class="row justify-content-center g-2">
 
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-11">
+                            <button class="btn btn-light w-100" onclick="space('')">
+                            
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="keyboard-row big container">
+                    <div class="row justify-content-center g-2">
+
                         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
                             <button class="btn btn-light w-100" onclick="reset('')">
                                 New Game
@@ -91,12 +100,13 @@
 
                         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
                             <!-- Hidden input for typing the guess -->
-<input type="text" id="guess-input-hidden" placeholder="Type the word" style="display:none;" />
+                            <input type="text" id="guess-input-hidden" placeholder="Type the word"
+                                style="display:none;" />
 
-<!-- Your button (keep ID and onclick) -->
-<button class="btn btn-light w-100" id="guess-input" onclick="guessWord('')">
-    Guess Whole Word
-</button>
+                            <!-- Your button (keep ID and onclick) -->
+                            <button class="btn btn-light w-100" id="guess-input" onclick="guessWord('')">
+                                Guess Whole Word
+                            </button>
                         </div>
 
                     </div>
@@ -106,13 +116,13 @@
         </div>
     </div>
 
-<div id="popup" class="popup">
-  <div class="popup-box">
-    <span id="popup-text"></span>
-  </div>
-</div>
+    <div id="popup" class="popup">
+        <div class="popup-box">
+            <span id="popup-text"></span>
+        </div>
+    </div>
 
-    
+
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
