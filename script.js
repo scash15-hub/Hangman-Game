@@ -56,7 +56,14 @@ function getRandomWord(level) {
 //start game
 function startGame(level) {
   selectedWord = getRandomWord(level).toUpperCase()
-  displayWord = '_'.repeat(selectedWord.length)
+
+  //ai
+  // own code (displayWord = '_'.repeat(selectedWord.length))
+  displayWord = selectedWord.split('').map(char => (char === ' ' ? ' ' : '_')).join('');
+  document.getElementById('wordDisplay').textContent =
+    displayWord.replace(/ /g, '    '); // 4 spaces for word gaps
+// finds every space in the word and replaces it with 4 spaces so gaps between words are bigger than gaps between letters
+  //edn ai
   wrongGuesses = 0;
   guessedLetters = [];
   gameOver = false;
@@ -205,7 +212,7 @@ function guessWord() {
     }, 2000);
 
     endGame(true);
-  } 
+  }
   //wrong guess
   else {
     wrongGuesses++;
