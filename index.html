@@ -29,16 +29,19 @@
     </div>
 
     <!-- SCREEN 2: game screen -->
-    <div id="game-screen" class="screen justify-content-center align-items-center">
-        <div class="card-box2">
-            <div class="medal-container text-center">
-                <img id="medal" src="imgs/medal6.png" width="200">
-            </div>
-            <div id="wordDisplay">
+<div id="game-screen" class="screen justify-content-center align-items-center">
+  <div class="game-card">
 
-            </div>
+    <!-- Medal -->
+    <div class="medal-container text-center">
+      <img id="medal" src="imgs/medal6.png" width="150">
+    </div>
 
+    <!-- Word -->
+    <div id="wordDisplay"></div>
 
+    <!-- Keyboard -->
+    <div class="keyboard-container text-center">
 
             <!-- AI KEYBOARD -->
             <div class="keyboard-container text-center">
@@ -82,13 +85,13 @@
                 <div class="keyboard-row big container">
                     <div class="row justify-content-center g-2">
 
-                        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-6">
                             <button class="btn btn-light w-100" onclick="reset('')">
                                 New Game
                             </button>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+                        <div class="col-12 col-sm-6 col-md-5 col-lg-6">
                             <!-- Hidden input for typing the guess -->
                             <input type="text" id="guess-input-hidden" placeholder="Type the word"
                                 style="display:none;" />
@@ -103,8 +106,10 @@
                 </div>
             </div>
             <!-- END OF AI KEYBOARD -->
-        </div>
-    </div>
+                </div>
+
+  </div>
+</div>
 
     <div id="popup" class="popup">
         <div class="popup-box">
