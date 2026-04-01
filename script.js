@@ -81,17 +81,14 @@ function endGame(win) {
     //ai so i can do popup not alert but i know how to do alerts
     //alert('You win!');
     document.getElementById("popup-text").textContent = "You win!";
-    document.getElementById("popup").style.display = "block";
-    setTimeout(() => {
-      document.getElementById("popup").style.display = "none";
-    }, 2000);
+document.getElementById("popup").classList.add("show");    setTimeout(() => {
+document.getElementById("popup").classList.remove("show");    }, 2000);
   } else {
     //alert('Game Over! The word was ' + selectedWord)
     document.getElementById("popup-text").textContent = "Game Over! The word was " + selectedWord;
-    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup").classList.add("show");
     setTimeout(() => {
-      document.getElementById("popup").style.display = "none";
-    }, 2000);
+document.getElementById("popup").classList.remove("show");    }, 2000);
   }
 }
 

@@ -177,63 +177,37 @@ body {
   font-weight: bold;
 }
 
-hr {
-  height: 30px;
-  background-color: black;
-  width: 3000px;
-  margin: 0;       
-  padding: 0;  
-  opacity: 0.5;    
-}
-
 #medal {
   margin-top: -30px;   
 }
 
 .popup {
   position: fixed;
-  top: 20px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  display: none;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  visibility: hidden;
+
   z-index: 9999;
+  transition: opacity 0.2s ease;
 }
 
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+}
 
-
-CHANGE
-base popup style
 .popup-box {
-  font-size: 24px;
+  font-size: 40px;
+  padding: 30px 60px;
+  border-radius: 15px;
   font-weight: bold;
-  border-radius: 20px;
-  padding: 20px 35px;
+  color: white;
   text-align: center;
-  background: #333;            /* dark neutral background */
-  color: white;                /* text color */
-  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7); /* subtle glow */
-  animation: popBounce 0.5s ease;
-}
 
-/* animation to bounce in */
-@keyframes popBounce {
-  0% {
-    transform: translateX(-50%) scale(0.5);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-50%) scale(1.1);
-  }
-  100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-}
-
-/* optional: pulse effect for extra fun */
-.popup-box {
-  animation: popBounce 0.5s ease, glowPulse 1.5s infinite alternate;
-}
+  background: rgb(15, 1, 80) !important;}
 
 
 
