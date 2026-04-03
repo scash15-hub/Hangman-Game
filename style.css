@@ -45,61 +45,121 @@ body {
   transform: scale(1.05);
 }
 
-/* Keyboard container */
+
 .keyboard-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  padding: 0;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0 10px;
 }
 
 .keyboard-row {
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-wrap: wrap; /* keeps keyboard buttons responsive */
-  justify-content: center;
+    width: 100%;
+    max-width: 600px;
 }
 
 .keyboard-row button {
-  min-width: 50px;
-  min-height: 50px;
-  width: 50px;
-  height: 50px;
-  padding: 12px 16px;
-  font-size: clamp(14px, 4vw, 22px);
-  font-weight: bold;
-  border-radius: 8px;
-  border: 2px solid black;
-  background: white;
-  cursor: pointer;
-  margin: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+    /* Responsive sizing */
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 12px 16px;
+    font-size: clamp(14px, 4vw, 22px);
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 6px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .keyboard-row button:hover:not(:disabled) {
-  background: #f0f0f0;
-  transform: scale(1.05);
+    background: #f0f0f0;
+    transform: scale(1.05);
 }
 
 .keyboard-row button:disabled {
-  background: lightgray;
-  cursor: not-allowed;
-  opacity: 0.6;
+    background: lightgray;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Extra small devices (mobile phones) */
+@media (max-width: 576px) {
+    .keyboard-container {
+        gap: 10px;
+        padding: 0 5px;
+    }
+    
+    .keyboard-row button {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 10px 14px;
+        margin: 4px;
+        font-size: 12px;
+    }
+}
+
+.keyboard-row.big {
+    width: 100%;
+    max-width: 520px; /* same visual width as row 3 */
+    margin: auto;
+}
+
+.keyboard-row.big button {
+    flex: 1;
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+
+.keyboard-container {
+          padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Small devices (landscape phones, tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .keyboard-row button {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        padding: 12px 16px;
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
+/* Medium devices and up (tablets, desktops) */
+@media (min-width: 769px) {
+    .keyboard-row button {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+        min-height: 55px;
+        padding: 14px 20px;
+        margin: 6px;
+        font-size: 18px;
+    }
 }
 
 /* Hide all screens by default */
 .screen {
-  display: none; /* hide all screens */
+  display: none;              /* hide all screens */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* makes it take most of the viewport */
+  min-height: 80vh;           /* makes it take most of the viewport */
 }
 
 /* Show the active screen */
@@ -107,85 +167,125 @@ body {
   display: flex;
 }
 
-/* Word display */
+/*underline for word display*/
 #wordDisplay {
-  font-size: clamp(1.8rem, 3vw, 3rem); /* scales down on long words */
-  letter-spacing: 8px;
-  white-space: normal;    /* allows line breaks */
-  display: flex;
-  flex-direction: column; /* stack letters vertically */
-  align-items: center;    /* center horizontally */
-  word-wrap: break-word;
-  margin-top: 140px;
-  font-weight: bold;
-  color: white;
-}
-
-/* Medal */
-#medal {
-  position: absolute;
-  top: -3px; 
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px; /* keep it big */
-  max-width: 60%; /* responsive for mobile */
-}
-
-.medal-container::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 60px;
-  background: #ccc;
-  border-radius: 2px;
-}
-
-/* Game card */
-.game-card {
-  background: rgba(255, 255, 255, 0.15); /* frosted glass */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 80px 50px 50px; /* more top padding for medal + bottom */
-  border-radius: 50px;
-  border: 3px solid #28a745; /* green border */
-  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5), 0 12px 35px rgba(0,0,0,0.5);
+  font-size: 50px;      
+  color: rgb(255, 255, 255);         
+  letter-spacing: 10px; 
   text-align: center;
-  max-width: 90%; /* responsive */
-  width: 100%;
-  min-height: 500px; /* taller to fit hard words */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 20px 0;
+  font-weight: bold;
 }
 
-/* Popup */
+hr {
+  height: 30px;
+  background-color: black;
+  width: 3000px;
+  margin: 0;       
+  padding: 0;  
+  opacity: 0.5;    
+}
+
+#medal {
+  margin-top: -30px;   
+}
+
 .popup {
   position: fixed;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  visibility: hidden;
+  transform: translateX(-50%);
+  display: none;
   z-index: 9999;
-  transition: opacity 0.2s ease;
 }
 
-.popup.show {
-  opacity: 1;
-  visibility: visible;
-}
 
-/* Popup box */
+
+CHANGE
+base popup style
 .popup-box {
-  font-size: 40px;
-  padding: 30px 60px;
-  border-radius: 15px;
+  font-size: 24px;
   font-weight: bold;
-  color: white;
+  border-radius: 20px;
+  padding: 20px 35px;
   text-align: center;
-  background: rgb(15, 1, 80) !important;
+  background: #333;            /* dark neutral background */
+  color: white;                /* text color */
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7); /* subtle glow */
+  animation: popBounce 0.5s ease;
 }
+
+/* animation to bounce in */
+@keyframes popBounce {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* optional: pulse effect for extra fun */
+.popup-box {
+  animation: popBounce 0.5s ease, glowPulse 1.5s infinite alternate;
+}
+
+
+
+
+
+
+
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(255, 255, 0, 1);
+  }
+}
+
+#guess-container {
+  margin-top: 15px;
+}
+
+#guess-input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+#guess-container button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#wordDisplay {
+  font-size: 3rem;      /* makes letters + _ bigger */
+  letter-spacing: 8px;  /* space between letters */
+  white-space: pre;
+  font-weight: bold;    /* makes _ look thicker */
+}
+
+.game-card {
+  background: rgba(0, 0, 0, 0.65); /* dark glass look */
+  border-radius: 25px;
+  padding: 30px 25px;
+  max-width: 750px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+
+  /* nice shadow + glow */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+
+  /* optional subtle border */
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
