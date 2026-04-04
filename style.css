@@ -8,11 +8,12 @@ body {
 
 /* Home menu box */
 .card-box1 {
-  background: rgba(0, 0, 0, 0.6); /* black with opacity so turf shows through */
+  background: rgba(0, 0, 0, 0.6);
+  /* black with opacity so turf shows through */
   padding: 50px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
 }
 
 /* Title */
@@ -37,7 +38,7 @@ body {
   color: white;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .card-box1 button:hover {
@@ -47,119 +48,124 @@ body {
 
 
 .keyboard-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .keyboard-row {
-    width: 100%;
-    max-width: 600px;
+  width: 100%;
+  max-width: 600px;
+  flex-wrap: wrap;
+
 }
 
 .keyboard-row button {
-    /* Responsive sizing */
-    min-width: 50px;
-    min-height: 50px;
-    width: 50px;
-    height: 50px;
-    padding: 12px 16px;
-    font-size: clamp(14px, 4vw, 22px);
-    font-weight: bold;
-    border-radius: 8px;
-    border: 2px solid black;
-    background: white;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin: 6px;
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Responsive sizing */
+  min-width: 50px;
+  min-height: 50px;
+  width: 50px;
+  height: 50px;
+  padding: 12px 16px;
+  font-size: clamp(14px, 4vw, 22px);
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 6px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .keyboard-row button:hover:not(:disabled) {
-    background: #f0f0f0;
-    transform: scale(1.05);
+  background: #f0f0f0;
+  transform: scale(1.05);
 }
 
 .keyboard-row button:disabled {
-    background: lightgray;
-    cursor: not-allowed;
-    opacity: 0.6;
+  background: lightgray;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Extra small devices (mobile phones) */
 @media (max-width: 576px) {
-    .keyboard-container {
-        gap: 10px;
-        padding: 0 5px;
-    }
-    
-    .keyboard-row button {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        min-height: 40px;
-        padding: 10px 14px;
-        margin: 4px;
-        font-size: 12px;
-    }
+  .keyboard-container {
+    gap: 10px;
+    padding: 0 5px;
+  }
+
+  .keyboard-row button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 10px 14px;
+    margin: 4px;
+    font-size: 12px;
+  }
 }
 
 .keyboard-row.big {
-    width: 100%;
-    max-width: 520px; /* same visual width as row 3 */
-    margin: auto;
+  width: 100%;
+  max-width: 520px;
+  /* same visual width as row 3 */
+  margin: auto;
 }
 
 .keyboard-row.big button {
-    flex: 1;
-    font-size: 18px;
-    padding: 12px 20px;
+  flex: 1;
+  font-size: 18px;
+  padding: 12px 20px;
 }
 
 
 .keyboard-container {
-          padding-left: 30px;
-    padding-right: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* Small devices (landscape phones, tablets) */
 @media (min-width: 576px) and (max-width: 768px) {
-    .keyboard-row button {
-        width: 45px;
-        height: 45px;
-        min-width: 45px;
-        min-height: 45px;
-        padding: 12px 16px;
-        margin: 5px;
-        font-size: 14px;
-    }
+  .keyboard-row button {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+    padding: 12px 16px;
+    margin: 5px;
+    font-size: 14px;
+  }
 }
 
 /* Medium devices and up (tablets, desktops) */
 @media (min-width: 769px) {
-    .keyboard-row button {
-        width: 55px;
-        height: 55px;
-        min-width: 55px;
-        min-height: 55px;
-        padding: 14px 20px;
-        margin: 6px;
-        font-size: 18px;
-    }
+  .keyboard-row button {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    min-height: 55px;
+    padding: 14px 20px;
+    margin: 6px;
+    font-size: 18px;
+  }
 }
 
 /* Hide all screens by default */
 .screen {
-  display: none;              /* hide all screens */
+  display: none;
+  /* hide all screens */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;           /* makes it take most of the viewport */
+  min-height: 80vh;
+  /* makes it take most of the viewport */
 }
 
 /* Show the active screen */
@@ -169,9 +175,9 @@ body {
 
 /*underline for word display*/
 #wordDisplay {
-  font-size: 50px;      
-  color: rgb(255, 255, 255);         
-  letter-spacing: 10px; 
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 10px;
   text-align: center;
   margin: 20px 0;
   font-weight: bold;
@@ -181,13 +187,13 @@ hr {
   height: 30px;
   background-color: black;
   width: 3000px;
-  margin: 0;       
-  padding: 0;  
-  opacity: 0.5;    
+  margin: 0;
+  padding: 0;
+  opacity: 0.5;
 }
 
 #medal {
-  margin-top: -30px;   
+  margin-top: -30px;
 }
 
 .popup {
@@ -201,17 +207,18 @@ hr {
 
 
 
-CHANGE
-base popup style
-.popup-box {
+CHANGE base popup style .popup-box {
   font-size: 24px;
   font-weight: bold;
   border-radius: 20px;
   padding: 20px 35px;
   text-align: center;
-  background: #333;            /* dark neutral background */
-  color: white;                /* text color */
-  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7); /* subtle glow */
+  background: #333;
+  /* dark neutral background */
+  color: white;
+  /* text color */
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
+  /* subtle glow */
   animation: popBounce 0.5s ease;
 }
 
@@ -221,9 +228,11 @@ base popup style
     transform: translateX(-50%) scale(0.5);
     opacity: 0;
   }
+
   60% {
     transform: translateX(-50%) scale(1.1);
   }
+
   100% {
     transform: translateX(-50%) scale(1);
     opacity: 1;
@@ -246,6 +255,7 @@ base popup style
   from {
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
   }
+
   to {
     box-shadow: 0 0 25px rgba(255, 255, 0, 1);
   }
@@ -267,14 +277,23 @@ base popup style
 }
 
 #wordDisplay {
-  font-size: 3rem;      /* makes letters + _ bigger */
-  letter-spacing: 8px;  /* space between letters */
-  white-space: pre;
-  font-weight: bold;    /* makes _ look thicker */
+  font-size: 3rem;
+  letter-spacing: 8px;
+  font-weight: bold;
+  text-align: center;
+
+  /* THE IMPORTANT FIXES */
+  white-space: pre-wrap;
+  /* allows wrapping */
+  word-break: keep-all;
+  /* keeps words together */
+  line-height: 1.3;
+  
 }
 
 .game-card {
-  background: rgba(0, 0, 0, 0.65); /* dark glass look */
+  background: rgba(0, 0, 0, 0.65);
+  /* dark glass look */
   border-radius: 25px;
   padding: 30px 25px;
   max-width: 750px;
@@ -282,10 +301,20 @@ base popup style
   margin: auto;
   text-align: center;
 
+  overflow: hidden;
+  /* keeps things inside nicely */
+
+
   /* nice shadow + glow */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 
   /* optional subtle border */
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.game-card.hard #wordDisplay {
+  white-space: nowrap;   /* FORCE one line */
+  overflow-x: auto;      /* scroll if too long */
+  letter-spacing: 4px;   /* smaller gaps */
+  font-size: 2.5rem;     /* slightly smaller so it fits */
+}

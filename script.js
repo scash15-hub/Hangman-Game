@@ -55,6 +55,16 @@ function getRandomWord(level) {
 
 //start game
 function startGame(level) {
+  //ai so i can have the card around the game bigger for hard level
+  const gameCard = document.querySelector('.game-card');
+
+  // remove old size classes
+  gameCard.classList.remove('easy', 'medium', 'hard');
+
+  // add the current level
+  gameCard.classList.add(level);
+  //end ai
+
   selectedWord = getRandomWord(level).toUpperCase()
 
   //ai
@@ -62,7 +72,7 @@ function startGame(level) {
   displayWord = selectedWord.split('').map(char => (char === ' ' ? ' ' : '_')).join('');
   document.getElementById('wordDisplay').textContent =
     displayWord.replace(/ /g, '    '); // 4 spaces for word gaps
-// finds every space in the word and replaces it with 4 spaces so gaps between words are bigger than gaps between letters
+  // finds every space in the word and replaces it with 4 spaces so gaps between words are bigger than gaps between letters
   //edn ai
   wrongGuesses = 0;
   guessedLetters = [];
@@ -155,8 +165,10 @@ function keyPress(letter) {
     displayWord = newWord
 
     //update screen
-    document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
-
+    // document.getElementById('wordDisplay').textContent = displayWord.split('').join('  ')
+    //ai "" (space) becomes \n (new line)
+    document.getElementById('wordDisplay').textContent = displayWord;
+    //end ai
     //win check
     if (displayWord.indexOf('_') === -1) {
       endGame(true);
