@@ -196,61 +196,6 @@ hr {
   margin-top: -30px;
 }
 
-.popup {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-  z-index: 9999;
-}
-
-
-
-CHANGE base popup style .popup-box {
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 20px;
-  padding: 20px 35px;
-  text-align: center;
-  background: #333;
-  /* dark neutral background */
-  color: white;
-  /* text color */
-  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
-  /* subtle glow */
-  animation: popBounce 0.5s ease;
-}
-
-/* animation to bounce in */
-@keyframes popBounce {
-  0% {
-    transform: translateX(-50%) scale(0.5);
-    opacity: 0;
-  }
-
-  60% {
-    transform: translateX(-50%) scale(1.1);
-  }
-
-  100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-}
-
-/* optional: pulse effect for extra fun */
-.popup-box {
-  animation: popBounce 0.5s ease, glowPulse 1.5s infinite alternate;
-}
-
-
-
-
-
-
-
-
 @keyframes glowPulse {
   from {
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
@@ -317,4 +262,44 @@ CHANGE base popup style .popup-box {
   overflow-x: auto;      /* scroll if too long */
   letter-spacing: 4px;   /* smaller gaps */
   font-size: 2.5rem;     /* slightly smaller so it fits */
+}
+
+/* center container (NO animation here) */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+/* dark overlay */
+.popup::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* your box */
+.popup-box {
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 40px 60px;
+  text-align: center;
+
+  background: #191970;
+  color: white;
+
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
